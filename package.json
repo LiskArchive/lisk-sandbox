@@ -1,0 +1,33 @@
+{
+	"name": "lisk-sandbox",
+	"version": "1.0.2",
+	"description": "Specialized Node.js module for running sandboxed Lisk dapps",
+	"main": "index.js",
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"test": "mocha"
+	},
+	"dependencies": {
+		"async": "*"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:LiskHQ/lisk-sandbox.git"
+	},
+	"keywords": [
+		"sandbox",
+		"lisk"
+	],
+	"author": "Boris Povod <boris@crypti.me>, Pavel Nekrasov <landgraf.paul@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/LiskHQ/lisk-sandbox/issues"
+	},
+	"homepage": "https://github.com/LiskHQ/lisk-sandbox",
+	"devDependencies": {
+		"mocha": "^2.2.5",
+		"should": "^6.0.1"
+	}
+}
