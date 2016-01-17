@@ -77,7 +77,7 @@ Sandbox.prototype._parse = function (data) {
 
 		this.apiHandler(message, function (err, response) {
 			var responseObj = {
-				type: "crypti_response",
+				type: "lisk_response",
 				callback_id: callback_id,
 				error: err,
 				response: response || {}
@@ -146,7 +146,7 @@ Sandbox.prototype.sendMessage = function (message, callback) {
 
 	var messageObj = {
 		callback_id: callback_id,
-		type: "crypti_call",
+		type: "lisk_call",
 		message: message
 	};
 
