@@ -2,6 +2,7 @@ var EventEmitter = require('events').EventEmitter,
     util = require('util'),
     spawn = require('child_process').spawn,
     path = require('path'),
+    querystring = require('querystring'),
     async = require('async');
 
 var callbacks = {};
@@ -180,7 +181,7 @@ Sandbox.prototype._onError = function (err) {
 }
 
 Sandbox.prototype._listen = function (dataraw) {
-	var data = decodeURIComponent(dataraw.toString('utf8'));
+	var data = querystring.unescape(dataraw.toString('utf8'));
 	magicData += data;
 	if (data.substring(data.length - 11) == magic) {
 		var fullMessage = magicData;
