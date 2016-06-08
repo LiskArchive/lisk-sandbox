@@ -8,6 +8,7 @@ var EventEmitter = require('events').EventEmitter,
 var callbacks = {};
 var magic = "=%5a$ng*a8=";
 var magicData = "";
+var debugPort = 5859;
 
 function Sandbox(file, id, params, apiHandler, debug) {
 	EventEmitter.call(this);
@@ -98,7 +99,12 @@ Sandbox.prototype._parse = function (data) {
 }
 
 Sandbox.prototype.run = function () {
-	this.child = spawn(path.join(__dirname, "../../nodejs/node"), [this.file].concat(this.params), {
+	var params = [this.file].concat(this.params);
+	if (this.debug) {
+		params.unshift("--debug=" + debugPort);
+		console.log("DebugPort " + params[1] + " : " + debugPort++);
+	}
+	this.child = spawn(path.join(__dirname, "../../nodejs/node"), params, {
 		stdio: ['pipe', 'pipe', 'pipe', 'pipe', 'pipe']
 	});
 
