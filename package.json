@@ -1,6 +1,6 @@
 {
 	"name": "lisk-sandbox",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "Specialized Node.js module for running sandboxed Lisk dapps",
 	"main": "index.js",
 	"dependencies": {
