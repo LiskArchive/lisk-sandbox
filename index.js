@@ -134,10 +134,7 @@ Sandbox.prototype.run = function () {
 
 	this.child.stdio[4].on('data', this._listen.bind(this));
 
-	if (this.debug) {
-		this.child.stdio[1].on('data', this._debug.bind(this));
-	}
-
+	this.child.stdio[1].on('data', this._debug.bind(this));
 	this.child.stdio[2].on('data', this._debug.bind(this));
 }
 
@@ -176,8 +173,12 @@ Sandbox.prototype.exit = function () {
 }
 
 Sandbox.prototype._debug = function (data) {
-	console.log("Debug " + this.file + ": \n");
-	console.log(data.toString('utf8'));
+	var p = this.file.split(path.sep);
+	if (p.length>2 && p[p.length-3]=="dapps")
+		console.log("APP " + p[p.length-2] + ":");	// prefix with APPID
+	else
+		console.log("APP " + this.file + ":");
+  console.log(data.toString('utf8'));
 }
 
 Sandbox.prototype._onError = function (err) {
